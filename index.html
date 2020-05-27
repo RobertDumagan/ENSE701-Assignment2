@@ -1,22 +1,27 @@
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Search Status Form</title>
-  <link rel="stylesheet" href="style.css" type="text/css" /> 
-</head>
-<body>
-  <h1><center>SEER</center></h1>
-  <h1>Please Login below</h1>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Search Status Form</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <h1><center>SEER</center></h1>
+    <h1>Please Login below</h1>
 
-  <form method="get" action="searchstatusprocess.php">
+    <form method="POST" action="searchstatusprocess.php">
       <label>Username: </label>
-      <input type="text" id="search" name="search" required>
+      <input type="text" id="search" name="search" required /><br /><br />
       <label>Password: </label>
-      <input type="text" id="search" name="search" required>
-      <input type="submit" value="Log in">
-  </form><br><br>
+      <input type="text" id="search" name="search" required />
+      <input type="submit" value="Log in" />
+    </form>
+    <br /><br />
 
-  <p><a href="register.html" class="linkbutton">Register Here!</a> </p><br/>
-
-</body>
+    <label>
+      Don't have an account? Click on the link below to create one for
+      free!</label
+    >
+    <p><a href="register.html" class="linkbutton">Register Here!</a></p>
+    <br />
+  </body>
 </html>
