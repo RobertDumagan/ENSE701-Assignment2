@@ -1,17 +1,20 @@
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>SEER</title>
-  <link rel="stylesheet" href="style.css" type="text/css" /> 
-</head>
-<body>
-  <h1><center>Welcome to SEER!</center></h1>
-
-  <p><a href="poststatusform.php" class="linkbutton">Post a New Article</a> </p><br/>
-  <p><a href="searchstatusform.html" class="linkbutton">Search Articles</a> </p><br/>
-  <p><a href="about.html" class="linkbutton">Account Details</a> </p><br/>
-
-  <p><a href="index.html" class="linkbutton">Log Out</a> </p><br/>
-
-</body>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>SEER</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript" src="mainmenuProcess.js"></script>
+    <h1><center>Welcome to SEER!</center></h1>
+    <button type="button" onclick="displayPost(); this.onclick=null">
+      Post Article
+    </button>
+    <button type="button" onclick="displaySearch()">Search Articles</button>
+    <button type="button" onclick="displayAccount()">Account Details</button>
+    <button type="button" onclick="displayLogout()">Log Out</button>
+  </head>
+  <body id="mainBody">
+    <?php include "./index.html" 
+    
+    ?>
+  </body>
 </html>
