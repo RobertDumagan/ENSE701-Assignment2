@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Register Process</title>
@@ -31,11 +30,12 @@
             echo "<label>Email Address: '" . $email . "' already exists! Try a different one!</label><br>";
             echo '<p><a href="register.html" class="linkbutton">Back</a></p>';
         } else {
-            $insertDetailsquery = mysqli_query($conn, "INSERT into users VALUES('$username', '$password', '$email')");
-            echo "<label>You have successfully registered for SEER!</label>";
-            echo '<p><a href="index.html" class="linkbutton">Login Now!</a></p>';
+            $currentDate = date('Y-m-d H:i:s');
+            $insertDetailsquery = mysqli_query($conn, "INSERT into users VALUES('$username', '$password', '$email', '$currentDate')");
+            echo "<script>alert(\"Successfully Registered!\");";
+            echo "window.location.replace('index.html');";
+            echo "</script>";
         }
     }
     ?>
-
 </html>

@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>SEER</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript" src="mainmenuProcess.js"></script>
+    <h1><center>Post an Article</center></h1>
+    <form action="mainmenu.html">
+      <input type="submit" value="Back" />
+    </form>
+  </head>
+  <body id="mainBody">
+    <form method="POST" action="postArticleprocess.php">
+      <label>Author: </label>
+      <input
+        type="text"
+        id="authorName"
+        name="authorName"
+        required
+      /><br /><br />
+      <label>Title: </label>
+      <input
+        type="text"
+        id="articleTitle"
+        name="articleTitle"
+        required
+      /><br /><br />
+      <label>Journal: </label>
+      <input
+        type="text"
+        id="journalName"
+        name="journalName"
+        required
+      /><br /><br />
+      <label>Year: </label>
+      <input
+        type="text"
+        id="articleYear"
+        name="articleYear"
+        required
+      /><br /><br />
+      <label>Volume: </label>
+      <input
+        type="text"
+        id="articleVolume"
+        name="articleVolume"
+        required
+      /><br /><br />
+      <label>Number: </label>
+      <input
+        type="text"
+        id="articleNumber"
+        name="articleNumber"
+        required
+      /><br /><br />
+      <label>Pages: </label>
+      <input
+        type="text"
+        id="articlePages"
+        name="articlePages"
+        required
+      /><br /><br />
+      <label>Month: </label>
+      <input
+        type="text"
+        id="articleMonth"
+        name="articleMonth"
+        minlength="3"
+        maxlength="3"
+        required
+      /><br /><br />
+      <label>DOI (Optional): </label>
+      <input type="text" id="doi" name="doi" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
