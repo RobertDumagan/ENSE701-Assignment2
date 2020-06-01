@@ -1,13 +1,8 @@
-<html>
+<?php
+    session_start();
+?>
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Register Process</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
-</head>
-
-<body>
-    <?php
+<?php
     $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
 
     if (!$conn) {
@@ -16,6 +11,9 @@
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
+
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
         }
 
         $checkUsernamequery = mysqli_query($conn, "SELECT username FROM users WHERE username='$username'");
@@ -23,16 +21,20 @@
 
         //if data exists in db check
         if (mysqli_num_rows($checkUsernamequery) > 0 && mysqli_num_rows($checkPasswordquery) > 0) {
-            echo "<h1>Logged In!</h1><br>";
-            echo '<p><a href="mainmenu.html" class="linkbutton">Continue to homepage</a></p>';
+            $doc = new DOMDocument();
+            $doc->loadHTMLFile("mainmenu.html");
+            echo $doc->saveHTMLFile();
+            echo "<script>alert(\"Successfully Logged In!\");";
+            echo "window.location.replace('mainmenu.html');";
+            echo "</script>";
         } else if (mysqli_num_rows($checkUsernamequery) == 0) {
-            echo "<label id='invalid'>Invalid Username! Try Again!</label>";
-            echo '<p><a href="index.html" class="linkbutton">Back</a></p>';
+            echo "<script>alert(\"Invalid Username!\");";
+            echo "window.location.replace('index.html');";
+            echo "</script>";
         } else {
-            echo "<label>Invalid Password! Try Again!</label>";
-            echo '<p><a href="index.html" class="linkbutton">Back</a></p>';
+            echo "<script>alert(\"Invalid Password!\");";
+            echo "window.location.replace('index.html');";
+            echo "</script>";
         }
     }
-    ?>
-
-</html>
+?>

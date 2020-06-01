@@ -5,16 +5,18 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script type="text/javascript" src="mainmenuProcess.js"></script>
     <h1><center>Welcome to SEER!</center></h1>
-    <button type="button" onclick="displayPost(); this.onclick=null">
-      Post Article
-    </button>
-    <button type="button" onclick="displaySearch()">Search Articles</button>
-    <button type="button" onclick="displayAccount()">Account Details</button>
-    <button type="button" onclick="displayLogout()">Log Out</button>
+    <form action="postArticle.html">
+      <input type="submit" value="Post Article" />
+    </form>
+    <form action="searchArticle.html">
+      <input type="submit" value="Search Article" />
+    </form>
+    <form action="account.php">
+      <input type="submit" value="Account Details" />
+    </form>
+    <form action="index.html">
+      <input type="submit" value="Log Out" />
+    </form>
   </head>
-  <body id="mainBody">
-    <?php include "./index.html" 
-    
-    ?>
-  </body>
+  <body id="mainBody"></body>
 </html>
