@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -11,13 +10,26 @@
     <h1> Search Results </h1>
 
     <?php
-    $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
+    $conn = new mysqli('127.0.0.1','root', '', 'seer');
 
-    $search = mysqli_real_escape_string($conn, $_GET['searchArticles']);
+    <form method="post" action="member_search.php">
+    <center><table>
+        <tr>
+            <td>Last Name </td>
+            <td><input type="text" name="lnameSearch" class="textInput"</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="search_button" value="Search"</td>
+        </tr>
+    </table></center>
+    </form>
+
+    $search = mysqli_real_escape_string($conn,trim($_GET['searchArticles']));
     $sql = "SELECT * FROM articles WHERE author_name LIKE '%$search%' 
     OR author_title LIKE '%$search%' OR methods LIKE '%$search%' OR outcomes LIKE '%$search%';"; 
     $result = mysqli_query($conn, $sql);
-
+    $qResult = mysqli_num_rows($result);
     //prints results if table has data
     if(!empty($result))
     {
@@ -26,8 +38,7 @@
         <td class =head>Title</td>
         <td class =head>Date</td>
         <td class =head>Methods</td>
-        <td class =head>Outcome</td></tr>";
-
+        <td class =head>Outcome</td></tr>";      
        //loop to print each search result
         while($row = mysqli_fetch_assoc($result)){
             echo "<br><tr><td>" . 
@@ -37,10 +48,9 @@
             $row["methods"] . "</td><td>" . 
             $row["outcome"] . "</td></tr>";
         }
-    }
-    else
-    {
+        else{
             echo "There are no articles containing your search keywords!";
+        }
         echo "</table";
     }
 
