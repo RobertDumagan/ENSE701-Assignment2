@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -8,27 +8,25 @@
 </head>
 
 <body>
-
     <h1> Search Results </h1>
 
-
     <?php
+    $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
 
-    //connects to database based on settings file (change details)
-    include_once '/home/xrn3664/conf/settings.php';
-
-
-
-
-    $searchTxt = trim($_GET['searchArticles']);
-    $query = "SELECT * FROM seer WHERE  LIKE '%$searchTxt%';"; //searches for database based on Status
-    $result = mysqli_query($conn, $query);
-   
-    
+    $searchText = mysql_real_escape_string($conn,trim($_GET['searchArticles']));
+    $sql = "SELECT author_name, author_title, 'date', methods, outcome FROM articles WHERE author_name LIKE '%$searchText%' 
+    OR author_title LIKE '%$searchText%' OR methods LIKE '%$searchText%' OR outcomes LIKE '%$searchText%';"; 
+    $result = mysqli_query($conn, $sql);
+    $qResult = mysqli_num_rows($result);
     //prints results if table has data
-    if(!empty($result)){
+    if(!empty($result))
+    {
         echo "<table border = 1 align = center  cellpadding=10>";
-        echo"<tr><td class =head>Status Code</td><td class =head>Status</td><td class =head>Share</td><td class =head>Date</td><td class =head>Permission(s)</td></tr>";      
+        echo"<tr><td class =head>Author Name</td>
+        <td class =head>Title</td>
+        <td class =head>Date</td>
+        <td class =head>Methods</td>
+        <td class =head>Outcome</td></tr>";      
        //loop to print each search result
         while($row = mysqli_fetch_assoc($result)){
             echo "<br><tr><td>" . 

@@ -1,0 +1,53 @@
+
+<html>
+<head>
+    <title>Search Articles</title>
+    <meta http-wquiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+
+    <h1> Search Articles</h1>
+    <?php
+    $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
+    ?>
+    
+    <form action="searchProcess.php" method="GET">
+        <table class="center">
+           <tr>
+                <td> Search: </td>
+                <td><input type="text" name="searchArticles" required placeholder="Search for Articles"><br> </td>
+                <td><input type="submit" value="Search"></td>
+            </tr>
+            <tr>
+
+
+    <?php
+        $sql = "SELECT author_name, author_title, date, methods, outcome FROM articles";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
+
+        echo "<table border = 1 align = center  cellpadding=10>";
+            echo"<tr><td class =head>Author Name</td>
+            <td class =head>Title</td>
+            <td class =head>Date</td>
+            <td class =head>Methods</td>
+            <td class =head>Outcome</td></tr>";      
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<br><tr><td>" . 
+                $row["author_name"] . "</td><td>" .
+                $row["author_title"] . "</td><td>" .
+                $row["date"] . "</td><td>" . 
+                $row["methods"] . "</td><td>" . 
+                $row["outcome"] . "</td></tr>";
+        ?>
+                </tr>
+        </table>
+
+    </form>
+
+</body>
+</html>
