@@ -18,7 +18,7 @@
     OR author_title LIKE '%$search%' OR methods LIKE '%$search%' OR outcomes LIKE '%$search%';"; 
     $result = mysqli_query($conn, $sql);
 
-    //prints results if table has data
+
     if(!empty($result))
     {
         echo "<table border = 1 align = center  cellpadding=10>";
@@ -28,7 +28,6 @@
         <td class =head>Methods</td>
         <td class =head>Outcome</td></tr>";
 
-       //loop to print each search result
         while($row = mysqli_fetch_assoc($result)){
             echo "<br><tr><td>" . 
             $row["author_name"] . "</td><td>" .
@@ -37,13 +36,13 @@
             $row["methods"] . "</td><td>" . 
             $row["outcome"] . "</td></tr>";
         }
-    }
-    else
-    {
-            echo "There are no articles containing your search keywords!";
         echo "</table";
     }
 
+    else
+    {
+            echo "There are no articles containing your search keywords!";
+    }
     ?>
 </body>
 
