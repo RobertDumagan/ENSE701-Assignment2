@@ -1,7 +1,9 @@
 language: php
 
 php:
-  - 7.2.3
+  - '7.0'
+  -hhvm
+  -nightly
 env:
   - DB=mysql
- 
+
