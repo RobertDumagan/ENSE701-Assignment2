@@ -31,7 +31,7 @@
             echo '<p><a href="register.html" class="linkbutton">Back</a></p>';
         } else {
             $currentDate = date('Y-m-d H:i:s');
-            $insertDetailsquery = mysqli_query($conn, "INSERT into users VALUES('$username', '$password', '$email', '$currentDate')");
+            $insertDetailsquery = mysqli_query($conn, "INSERT into users VALUES('$username', '$password', '$email', '$currentDate', 0, 0, 0)");
             echo "<script>alert(\"Successfully Registered!\");";
             echo "window.location.replace('index.html');";
             echo "</script>";

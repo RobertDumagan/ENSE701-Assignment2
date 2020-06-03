@@ -11,19 +11,22 @@
             $volume = $_POST['articleVolume'];
             $num = $_POST['articleNumber'];
             $pages = $_POST['articlePages'];
-            $month = $_POST['articleMonth'];
+            //$month = $_POST['articleMonth'];
             $DOI = $_POST['doi'];
+        
+        $apaString = "$author".". (".$year.")".". ".$title.". "."$journal" .", ".$volume."(".$num."), ".$pages.". ".$DOI."";
 
-        $insertArticle = mysqli_query($conn, "INSERT into modqueue (author, title, journal, year, volume, number, pages, month, DOI) VALUES('$author', '$title', '$journal', $year, $volume, $num, '$pages', '$month', '$DOI')");
+        $insertArticle = mysqli_query($conn, "INSERT into modqueue (article) VALUES('$apaString')");
 
         if($insertArticle){
             echo "<script>alert(\"Successfully posted the Article! Now awaiting Moderation!\");";
             echo "window.location.replace('postArticle.html');";
             echo "</script>";
         }else{
-            echo "<script>alert(\"Error! Something Went Wrong:\");";
+            echo "<script>alert(\"Error! Something Went Wrong:\");"."$apaString";
             echo "window.location.replace('postArticle.html');";
             echo "</script>";
+
         }
             
     }
