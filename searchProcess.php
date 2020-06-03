@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Post Article</title>
+    <title>Search Article</title>
     <meta http-wquiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -14,8 +14,8 @@
     $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
 
     $search = mysqli_real_escape_string($conn, $_GET['searchArticles']);
-    $sql = "SELECT * FROM articles WHERE author_name LIKE '%$search%' 
-    OR author_title LIKE '%$search%' OR methods LIKE '%$search%' OR outcomes LIKE '%$search%';"; 
+    $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' OR author_title LIKE '%$search%' 
+    OR methods LIKE '%$search%' OR outcomes LIKE '%$search%'");
     $result = mysqli_query($conn, $sql);
 
 
