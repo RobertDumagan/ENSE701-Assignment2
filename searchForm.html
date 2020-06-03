@@ -1,38 +1,35 @@
 
 <html>
-<head>
-    <title>Search Articles</title>
-    <meta http-wquiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-    <h1> Search Articles</h1>
-
-    <form action="searchProcess.php" method="GET">
+    <head>
+        <title>Search Articles</title>
+        <meta http-wquiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    
+    <body>
+        <h1> Search Articles</h1>
+    
+       <form action="searchProcess.php" method="GET">
         <table class="center">
            <tr>
-                <td> Search: </td>
-                <td><input type="text" name="searchArticles" required placeholder="Enter Keywords"><br> </td>
-                <td><input type="submit" value="submit"></td>
+
+            <td> Search: </td>
+            <td><input type="text" name="searchArticles" required placeholder="Enter Keywords"><br> </td>
+
+            <select name="filter">
+            <option value="default">Filter Search by</option>
+            <option value="author_name"> Author Name </option>
+            <option value="author_title"> Author Title</option>
+            <option value="date"> Date </option>
+            <option value="methods"> Methods </option>
+            <option value="outcome"> Outcome </option>
+            </select>
+            <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
 
+          </form>
+
         </table>
-
-    </form>
-
     
-    <!--<form action="searchProcess.php">
-        <td><input list="sorting" placeholder="Sort by ..."></td>
-        <datalist id="sorting">
-         <option value="Sort by Name">
-          <option value="Sort by Title">
-          <option value="Sort by Date">
-          <option value="Sort by Methods">
-          <option value="Sort by Outcome">
-        </datalist>
-        <td><input type="submit" value="sort"></td>
-      </form>-->
-
-</body>
-</html>
+    </body>
+    </html>
