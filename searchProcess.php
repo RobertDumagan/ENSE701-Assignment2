@@ -1,4 +1,5 @@
 
+
 <html>
 
 <head>
@@ -15,7 +16,7 @@
 
     $search = mysqli_real_escape_string($conn, $_GET['searchArticles']);
     $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' OR author_title LIKE '%$search%' 
-    OR methods LIKE '%$search%' OR outcomes LIKE '%$search%'");
+    OR methods LIKE '%$search%' OR date LIKE '%$search%' OR outcome LIKE '%$search%'");
     $result = mysqli_query($conn, $sql);
 
 
