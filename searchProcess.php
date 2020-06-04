@@ -14,6 +14,24 @@
     <?php
     $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
 
+    if(isset($_GET['order']))
+    {  
+        $order= $_GET['order'];
+    }
+    else
+    {
+        $order = 'author_name';
+    }
+
+    if(isset($_GET['sort']))
+    {  
+        $sort= $_GET['sort'];
+    }
+    else
+    {
+        $sort = 'ASC';
+    }
+
     $search = mysqli_real_escape_string($conn, $_GET['searchArticles']);
     $filter = mysqli_real_escape_string($conn, $_GET['filter']);
 
@@ -26,11 +44,11 @@
     if ($filter=='default') 
     {
         $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' OR author_title LIKE '%$search%' 
-        OR methods LIKE '%$search%' OR date LIKE '%$search%' OR outcome LIKE '%$search%'"); 
+        OR methods LIKE '%$search%' OR date LIKE '%$search%' OR outcome LIKE '%$search%' ORDER BY $order $sort"); 
     }
     else   
      {
-    $sql = ("SELECT * FROM articles WHERE $filter LIKE '%$search%'"); 
+    $sql = ("SELECT * FROM articles WHERE $filter LIKE '%$search%' ORDER BY $order $sort"); 
      }
     
     $result = mysqli_query($conn, $sql);
@@ -38,12 +56,17 @@
 
     if(!empty($result) && $filter == 'default')
     {
+        $sort == 'DESC' ? $sort = 'ASC' : $sort = 'DESC';
+
         echo "<table border = 1 align = center  cellpadding=10>";
-        echo"<tr><td class =head>Author Name</td>
-        <td class =head>Title</td>
-        <td class =head>Date</td>
-        <td class =head>Methods</td>
-        <td class =head>Outcome</td></tr>";
+        echo
+        "<tr>
+        <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
+        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
+        <th><a href='?order=date&&sort=$sort'>Date</a></th>
+        <th><a href='?order=methods&&sort=$sort'>Method</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Outcome</a></th>
+        </tr>";
 
         while($row = mysqli_fetch_assoc($result)){
             echo "<br><tr><td>" . 
@@ -59,11 +82,14 @@
     elseif (!empty($result) && $filter == $filter)
     {
         echo "<table border = 1 align = center  cellpadding=10>";
-        echo"<tr><td class =head>Author Name</td> ;
-        <td class =head>Title</td>
-        <td class =head>Date</td>
-        <td class =head>Methods</td>
-        <td class =head>Outcome</td></tr>";
+        echo 
+        "<tr>
+        <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
+        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
+        <th><a href='?order=date&&sort=$sort'>Date</a></th>
+        <th><a href='?order=methods&&sort=$sort'>Method</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Outcome</a></th>
+        </tr>";
 
         while($row = mysqli_fetch_assoc($result)){
             echo "<br><tr><td>" . 
@@ -75,15 +101,15 @@
             ;
         }
         echo "</table";
-
-
     }
 
     else
     {
             echo "There are no articles containing your search keywords!";
     }
-    ?>
+?>
+
+
 </body>
 
 </html>
