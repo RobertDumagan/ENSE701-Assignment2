@@ -59,18 +59,19 @@
     elseif (!empty($result) && $filter == $filter)
     {
         echo "<table border = 1 align = center  cellpadding=10>";
-        echo"<tr><td class =head>$filter</td> ;
+        echo"<tr><td class =head>Author Name</td> ;
         <td class =head>Title</td>
         <td class =head>Date</td>
         <td class =head>Methods</td>
         <td class =head>Outcome</td></tr>";
 
         while($row = mysqli_fetch_assoc($result)){
-            echo "<br><tr><td>" . $row[$filter] . 
-            "</td><td> 
-            </td><td> 
-            </td><td>
-            </td><td>"
+            echo "<br><tr><td>" . 
+            $row["author_name"] . "</td><td>" .
+            $row["author_title"] . "</td><td>" .
+            $row["date"] . "</td><td>" . 
+            $row["methods"] . "</td><td>" . 
+            $row["outcome"] . "</td></tr>";
             ;
         }
         echo "</table";
