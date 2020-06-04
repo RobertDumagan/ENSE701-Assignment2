@@ -1,7 +1,3 @@
-<?php
-  session_start();
-?>
-
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -21,7 +17,6 @@
       } else {
           $username = $_SESSION['username'];
           $password = $_SESSION['password'];
-          $userRole;
 
           $getEmail = mysqli_query($conn, "SELECT email FROM users WHERE username='$username'");
           $result = mysqli_fetch_row($getEmail);
@@ -38,16 +33,12 @@
           $result3 = mysqli_fetch_row($getRoleAdmin);
 
           if($result3[0] == 1){
-            $_SESSION["userRole"] = "admin";
             echo "<p>Account Role(s): Administrator";
           }elseif($result1[0] == 1){
-            $_SESSION["userRole"] = "moderator";
             echo "<p>Account Role(s): Moderator";
           }elseif ($result2[0] == 1) {
-            $_SESSION["userRole"] = "analyst";
             echo "<p>Account Role(s): Analyst";
           }else{
-            $_SESSION["userRole"] = "standard";
             echo "<p>Account Role(s): Standard";
           }
           $getAccDate = mysqli_query($conn, "SELECT accDate from users where username='$username'");
