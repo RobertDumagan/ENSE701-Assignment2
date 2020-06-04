@@ -1,6 +1,7 @@
-language: php
+language: 
+  -php
 os:
-  linux
+  -windows
 php:
   - 7.2.3
   -hhvm
