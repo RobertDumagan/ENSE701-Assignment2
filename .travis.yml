@@ -1,6 +1,6 @@
 language: php
 os:
-  windows
+  linux
 php:
   - '7.0'
   -hhvm
