@@ -34,7 +34,9 @@
 
     $search = mysqli_real_escape_string($conn, $_GET['searchArticles']);
     $filter = mysqli_real_escape_string($conn, $_GET['filter']);
-
+    //$display = mysqli_real_escape_string($conn, $_GET['displayList']);
+    //$startDate =  $_GET['startDate'];
+    //$endDate =  $_GET['endDate'];
     
     //if the option select variable is not the same, $filter = default
     if ($filter == "" || ($filter != "author_name" && $filter != "author_title" && $filter != "date" && $filter != "methods" && $filter != "outcome"))
@@ -43,8 +45,10 @@
 
     if ($filter=='default') 
     {
-        $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' OR author_title LIKE '%$search%' 
-        OR methods LIKE '%$search%' OR date LIKE '%$search%' OR outcome LIKE '%$search%' ORDER BY $order $sort"); 
+        $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' 
+        OR author_title LIKE '%$search%' OR methods LIKE '%$search%' 
+        OR outcome LIKE '%$search%' OR date LIKE '%$search%' 
+        ORDER BY $order $sort"); 
     }
     else   
      {
@@ -69,12 +73,14 @@
         </tr>";
 
         while($row = mysqli_fetch_assoc($result)){
-            echo "<br><tr><td>" . 
-            $row["author_name"] . "</td><td>" .
-            $row["author_title"] . "</td><td>" .
-            $row["date"] . "</td><td>" . 
-            $row["methods"] . "</td><td>" . 
-            $row["outcome"] . "</td></tr>";
+            echo "<br>
+            <tr>
+            <td>" . $row["author_name"] . "</td>
+            <td>" . $row["author_title"] . "</td>
+            <td>" . $row["date"] . "</td> 
+            <td>" . $row["methods"] . "</td>
+            <td>" . $row["outcome"] . "</td>
+            </tr>";
         }
         echo "</table";
     }
@@ -92,13 +98,14 @@
         </tr>";
 
         while($row = mysqli_fetch_assoc($result)){
-            echo "<br><tr><td>" . 
-            $row["author_name"] . "</td><td>" .
-            $row["author_title"] . "</td><td>" .
-            $row["date"] . "</td><td>" . 
-            $row["methods"] . "</td><td>" . 
-            $row["outcome"] . "</td></tr>";
-            ;
+            echo "<br>
+            <tr>
+            <td>" . $row["author_name"] . "</td>
+            <td>" . $row["author_title"] . "</td>
+            <td>" . $row["date"] . "</td> 
+            <td>" . $row["methods"] . "</td>
+            <td>" . $row["outcome"] . "</td>
+            </tr>";
         }
         echo "</table";
     }

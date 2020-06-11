@@ -11,21 +11,52 @@
     
        <form action="searchProcess.php" method="GET">
         <table class="center">
-           <tr>
+        <tr>
 
-            <td> Search: </td>
-            <td><input type="text" name="searchArticles" required placeholder="Enter Keywords"><br> </td>
+            <td>Enter Keywords:</td>
+            <td><input type="text" name="searchArticles"  placeholder="Keywords"></td>
+        </tr>
 
-            <select name="filter">
-            <option value="default">Filter Search by</option>
+        <tr>
+            <td>Search Keywords in: </td>
+        <td><select name="filter">
+            <option value="default">All</option>
             <option value="author_name"> Author Name </option>
             <option value="author_title"> Author Title</option>
-            <option value="date"> Date </option>
+            <option value=date> Date </option>
             <option value="methods"> Methods </option>
             <option value="outcome"> Outcome </option>
-            </select>
-            <td><input type="submit" name="submit" value="Submit"></td>
-            </tr>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Search Date Between:</td>
+            <td><input type="date" name="startDate"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="date" name="endDate"></td>
+        </tr>
+
+        <tr>
+            <td>Columns to display:</td>
+            <td>
+            <select name="displayList[]" size="6" multiple="multiple">
+                <option value="1">Default</option>
+                <option value="2"> Author Name </option>
+                <option value="3"> Author Title</option>
+                <option value="4"> Date </option>
+                <option value="5"> Methods </option>
+                <option value="6"> Outcome </option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr>
+        <td><input type="submit" name="submit" value="Submit"></td>
+        </tr>
+        
 
           </form>
 
