@@ -4,6 +4,8 @@
 
 <?php
     $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
+    //$_SESSION["status"] = "login";
+    //$userStatus = $_SESSION["status"];
 
     if (!$conn) {
         die("<p>Could not connect: </p>" . mysqli_error($connection));
@@ -47,9 +49,9 @@
                 $_SESSION["userRole"] = "standard";
                 echo "<p>Account Role(s): Standard";
               }
-            header("Location: mainmenu.php");
+            header("Location: index.html");
             echo "<script>alert(\"Successfully Logged In!\");";
-            echo "window.location.replace('mainmenu.html');";
+            echo "window.location.replace('index.html');";
             echo "</script>";
         } else if ($username != $row[0]) {
             echo "<script>alert(\"Invalid Username!\");";

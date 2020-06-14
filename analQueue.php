@@ -4,7 +4,7 @@
     <title>Search Status Form</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
     <h1><center>Analyst Queue</center></h1>
-    <form method="POST" action="mainmenu.php">
+    <form action="mainmenu.php">
       <input type="submit" value="Back" />
     </form>
     <br /><br />
