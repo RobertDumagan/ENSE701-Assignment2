@@ -1,10 +1,14 @@
 <?php
+    session_start();
+    $_SESSION["status"];
+    $userStatus = $_SESSION["status"];
+
     $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
 
     if (!$conn) {
         die("<p>Could not connect to Database: </p>" . mysqli_error($connection));
     } else {
-            $author = $_POST['authorName'];
+             $author = $_POST['authorName'];
             $title = $_POST['articleTitle'];
             $journal = $_POST['journalName'];
             $year = $_POST['articleYear'];
@@ -28,6 +32,5 @@
             echo "</script>";
 
         }
-            
     }
 ?>

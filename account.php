@@ -8,7 +8,7 @@
     <title>SEER</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
     <h1><center>Acount Details</center></h1>
-    <form action="mainmenu.html">
+    <form action="index.html">
       <input type="submit" value="Back" />
     </form>
   </head>
