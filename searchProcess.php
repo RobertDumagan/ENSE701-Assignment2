@@ -16,7 +16,7 @@
 
     if(isset($_GET['order']))
     {  
-        $order= $_GET['order'];
+       $order= $_GET['order'];
     }
     else
     {
