@@ -23,7 +23,6 @@
             <option value="default">All</option>
             <option value="author_name"> Author Name </option>
             <option value="author_title"> Author Title</option>
-            <option value=date> Date </option>
             <option value="methods"> Methods </option>
             <option value="outcome"> Outcome </option>
             </select></td>
@@ -31,24 +30,22 @@
 
         <tr>
             <td>Search Date Between:</td>
-            <td><input type="date" name="startDate"></td>
+            <td><input type="text" name="startDate" placeholder="Enter Date Range 1"></td>
         </tr>
 
         <tr>
             <td></td>
-            <td><input type="date" name="endDate"></td>
+            <td><input type="text" name="endDate" placeholder="Enter Date Range 2"></td>
         </tr>
 
         <tr>
             <td>Columns to display:</td>
             <td>
-            <select name="displayList[]" size="6" multiple="multiple">
-                <option value="1">Default</option>
-                <option value="2"> Author Name </option>
-                <option value="3"> Author Title</option>
-                <option value="4"> Date </option>
-                <option value="5"> Methods </option>
-                <option value="6"> Outcome </option>
+            <select name="displayList">
+                <option value="option1">All</option>
+                <option value="option2"> Name, Title & Date</option>
+                <option value="option3"> Name, Methods & Outcome</option>
+                <option value="option4"> Title, Methods & Outcome</option>
                 </select>
             </td>
         </tr>
