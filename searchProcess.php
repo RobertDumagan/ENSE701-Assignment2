@@ -5,7 +5,7 @@
 <head>
     <title>Search Article</title>
     <meta http-wquiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>

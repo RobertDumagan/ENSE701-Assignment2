@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>SEER</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
     <h1><center>Acount Details</center></h1>
     <form action="mainmenu.html">
       <input type="submit" value="Back" />
