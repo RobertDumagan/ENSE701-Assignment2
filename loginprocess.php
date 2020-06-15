@@ -3,12 +3,12 @@
 ?>
 
 <?php
-    $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
+    $conn = new mysqli('us-cdbr-east-05.cleardb.net', 'b71967a7225592', 'a5c07dd8', 'heroku_98ace43fd919bd3');
     //$_SESSION["status"] = "login";
     //$userStatus = $_SESSION["status"];
 
     if (!$conn) {
-        die("<p>Could not connect: </p>" . mysqli_error($connection));
+        die("<p>Could not connect: </p>" . mysqli_error($link));
     } else {
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = $_POST['username'];
