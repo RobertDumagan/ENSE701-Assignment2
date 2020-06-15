@@ -20,7 +20,7 @@
     }
     else
     {
-        $order = 'author_name';
+        $order = 'authorName';
     }
 
     if(isset($_GET['sort']))
@@ -47,7 +47,7 @@
     {
         $sql = ("SELECT * FROM articles WHERE authorName LIKE '%$search%' 
         OR authorTitle LIKE '%$search%' OR journal LIKE '%$search%' 
-        OR outcome LIKE '%$search%' and articleYear BETWEEN '$startDate' and '$endDate'
+        OR articleYear LIKE '%$search%'
         ORDER BY $order $sort"); 
     }
     else 
@@ -65,13 +65,13 @@
         echo "<table border = 1 align = center  cellpadding=10>";
         echo
         "<tr>
-        <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
-        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
+        <th>Author Name</th>
+        <th>Title</th>
+        <th>Journal</th>
+        <th>Year</th>
+        <th>Volume</a></th>
+        <th>Article Number</a></th>
+        <th>Article Pages</th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
@@ -99,12 +99,12 @@
         echo "<table border = 1 align = center  cellpadding=10>";
         echo
         "<tr>
-        <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
-        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
+        <th>Author Name</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Volume</th>
+        <th>Article Number</th>
+        <th>Article Pages</th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
@@ -131,12 +131,12 @@
         echo "<table border = 1 align = center  cellpadding=10>";
         echo
         "<tr>
-        <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
-        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
+        <th>Author Name</th>
+        <th>Title</th>
+        <th>Journal</th>
+        <th>Volume</th>
+        <th>Article Number</th>
+        <th>Article Pages</th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
@@ -163,12 +163,12 @@
         echo "<table border = 1 align = center  cellpadding=10>";
         echo
         "<tr>
-        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
+        <th>Title</th>
+        <th>Journal</th>
+        <th>Year</th>
+        <th>Volume</th>
+        <th>Article Number</th>
+        <th>Article Pages</th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
