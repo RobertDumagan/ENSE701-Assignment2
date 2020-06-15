@@ -85,7 +85,7 @@
         }
         echo "</table";
         
-        echo "<th><a href='http://localhost/ENSE701-Assignment2/searchForm.html'>Search Again</a></th>";
+        echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
     elseif(!empty($result) && $display == "option2")
@@ -111,7 +111,7 @@
         }
         echo "</table";
 
-        echo "<th><a href='http://localhost/ENSE701-Assignment2/searchForm.html'>Search Again</a></th>";
+        echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
     elseif(!empty($result) && $display == "option3")
@@ -137,7 +137,7 @@
         }
         echo "</table";
 
-        echo "<th><a href='http://localhost/ENSE701-Assignment2/searchForm.html'>Search Again</a></th>";
+        echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
     elseif(!empty($result) && $display == "option4")
@@ -163,7 +163,7 @@
         }
         echo "</table";
 
-        echo "<th><a href='http://localhost/ENSE701-Assignment2/searchForm.html'>Search Again</a></th>";
+        echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
 
@@ -171,7 +171,7 @@
     {
             echo "There are no articles containing your search keywords!";
 
-            echo "<th><a href='http://localhost/ENSE701-Assignment2/searchForm.html'>Search Again</a></th>";
+            echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 ?>
 
