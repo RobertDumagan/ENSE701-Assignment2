@@ -12,7 +12,7 @@
     <h1> Search Results </h1>
 
     <?php
-    $conn = new mysqli('127.0.0.1', 'root', '', 'seer');
+    $conn = new mysqli('us-cdbr-east-05.cleardb.net', 'b71967a7225592', 'a5c07dd8', 'heroku_98ace43fd919bd3');
 
     if(isset($_GET['order']))
     {  
@@ -39,15 +39,15 @@
     $endDate =  mysqli_real_escape_string($conn,$_GET['endDate']);
     
     //if the option select variable is not the same, $filter = default
-    if ($filter == "" || ($filter != "author_name" && $filter != "author_title" && $filter != "methods" && $filter != "outcome"))
+    if ($filter == "" || ($filter != "authorName" && $filter != "authorTitle" && $filter != "journal" && $filter != "articleYear"))
         $filter ="default";
 
 
     if ($filter=='default') 
     {
-        $sql = ("SELECT * FROM articles WHERE author_name LIKE '%$search%' 
-        OR author_title LIKE '%$search%' OR methods LIKE '%$search%' 
-        OR outcome LIKE '%$search%' and a_date BETWEEN '$startDate' and '$endDate'
+        $sql = ("SELECT * FROM articles WHERE authorName LIKE '%$search%' 
+        OR authorTitle LIKE '%$search%' OR journal LIKE '%$search%' 
+        OR outcome LIKE '%$search%' and articleYear BETWEEN '$startDate' and '$endDate'
         ORDER BY $order $sort"); 
     }
     else 
@@ -67,20 +67,24 @@
         "<tr>
         <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
         <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=date&&sort=$sort'>Date</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Method</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Outcome</a></th>
+        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
+        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
         {
             echo "<br>
             <tr>
-            <td>" . $row["author_name"] . "</td>
-            <td>" . $row["author_title"] . "</td>
-            <td>" . $row["a_date"] . "</td> 
-            <td>" . $row["methods"] . "</td>
-            <td>" . $row["outcome"] . "</td>
+            <td>" . $row["authorName"] . "</td>
+            <td>" . $row["authorTitle"] . "</td>
+            <td>" . $row["journal"] . "</td> 
+            <td>" . $row["articleYear"] . "</td>
+            <td>" . $row["volume"] . "</td>
+            <td>" . $row["articleNum"] . "</td>
+            <td>" . $row["articlePages"] . "</td>
             </tr>";
         }
         echo "</table";
@@ -97,20 +101,26 @@
         "<tr>
         <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
         <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=date&&sort=$sort'>Date</a></th>
+        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
         {
             echo "<br>
             <tr>
-            <td>" . $row["author_name"] . "</td>
-            <td>" . $row["author_title"] . "</td>
-            <td>" . $row["a_date"] . "</td> 
+            <td>" . $row["authorName"] . "</td>
+            <td>" . $row["authorTitle"] . "</td>
+            <td>" . $row["articleYear"] . "</td>
+            <td>" . $row["volume"] . "</td>
+            <td>" . $row["articleNum"] . "</td>
+            <td>" . $row["articlePages"] . "</td>
             </tr>";
         }
         echo "</table";
-
+        
         echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
@@ -122,21 +132,27 @@
         echo
         "<tr>
         <th><a href='?order=author_name&&sort=$sort'>Author Name</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Method</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Outcome</a></th>
+        <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
+        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
         {
             echo "<br>
             <tr>
-            <td>" . $row["author_name"] . "</td>
-            <td>" . $row["methods"] . "</td>
-            <td>" . $row["outcome"] . "</td>
+            <td>" . $row["authorName"] . "</td>
+            <td>" . $row["authorTitle"] . "</td>
+            <td>" . $row["journal"] . "</td> 
+            <td>" . $row["volume"] . "</td>
+            <td>" . $row["articleNum"] . "</td>
+            <td>" . $row["articlePages"] . "</td>
             </tr>";
         }
         echo "</table";
-
+        
         echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
@@ -148,21 +164,27 @@
         echo
         "<tr>
         <th><a href='?order=author_title&&sort=$sort'>Title</a></th>
-        <th><a href='?order=methods&&sort=$sort'>Method</a></th>
-        <th><a href='?order=outcome&&sort=$sort'>Outcome</a></th>
+        <th><a href='?order=date&&sort=$sort'>Journal</a></th>
+        <th><a href='?order=methods&&sort=$sort'>Year</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Volume</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Number</a></th>
+        <th><a href='?order=outcome&&sort=$sort'>Article Pages</a></th>
         </tr>";
 
         while($row = mysqli_fetch_assoc($result))
         {
             echo "<br>
             <tr>
-            <td>" . $row["author_title"] . "</td>
-            <td>" . $row["methods"] . "</td>
-            <td>" . $row["outcome"] . "</td>
+            <td>" . $row["authorTitle"] . "</td>
+            <td>" . $row["journal"] . "</td> 
+            <td>" . $row["articleYear"] . "</td>
+            <td>" . $row["volume"] . "</td>
+            <td>" . $row["articleNum"] . "</td>
+            <td>" . $row["articlePages"] . "</td>
             </tr>";
         }
         echo "</table";
-
+        
         echo "<th><a href='searchForm.html'>Search Again</a></th>";
     }
 
